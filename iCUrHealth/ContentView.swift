@@ -38,48 +38,62 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    Text("Steps")
-                    Chart(data) {
-                        BarMark(x: .value("Date", $0.dateInterval),
-                                y: .value("Count", $0.data)
-                        )
-                        
-                    }
-                }.frame(maxHeight: 100)
-                Button(action: {
-                    Task {
-                        try await fetchStepCountData()
-                    }
-                })
-                     {
-                    Text("Exp Function")
-                }
-                Spacer()
-                .onAppear() {
-                    if HKHealthStore.isHealthDataAvailable() {
-                        trigger.toggle()
-                    }
-                }
-                .healthDataAccessRequest(store: healthStore,
-                                         readTypes: allTypes,
-                                         trigger: trigger) { result in
-                    switch result {
-                        
-                    case .success(_):
-                        authenticated = true
+            TabView{
+                VStack {
+                    HStack {
+                        Text("Steps")
+                        Chart(data) {
+                            BarMark(x: .value("Date", $0.dateInterval),
+                                    y: .value("Count", $0.data)
+                            )
+                            
+                        }
+                    }.frame(maxHeight: 100)
+                    Button(action: {
                         Task {
                             try await fetchStepCountData()
                         }
-                    case .failure(let error):
-                        // Handle the error here.
-                        fatalError("*** An error occurred while requesting authentication: \(error) ***")
+                    })
+                    {
+                        Text("Exp Function")
                     }
+                    Spacer()
+                        .onAppear() {
+                            if HKHealthStore.isHealthDataAvailable() {
+                                trigger.toggle()
+                            }
+                        }
+                        .healthDataAccessRequest(store: healthStore,
+                                                 readTypes: allTypes,
+                                                 trigger: trigger) { result in
+                            switch result {
+                                
+                            case .success(_):
+                                authenticated = true
+                                Task {
+                                    try await fetchStepCountData()
+                                }
+                            case .failure(let error):
+                                // Handle the error here.
+                                fatalError("*** An error occurred while requesting authentication: \(error) ***")
+                            }
+                        }
                 }
+                .padding()
+                .navigationTitle("iCUrHealth")
+                
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Home")
+                }
+                let ch1 = userChart(type: "bar", data1: data)
+                let ch2 = userChart(type: "line", data1: data)
+                UserCharts(charts: [ch1, ch2])
+                    .tabItem {
+                        Image(systemName: "chart.xyaxis.line")
+                        Text("Charts")
+                    }
             }
-            .padding()
-            .navigationTitle("iCUrHealth")
         }
     }
     
