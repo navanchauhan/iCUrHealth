@@ -93,6 +93,11 @@ struct ContentView: View {
                         Image(systemName: "chart.xyaxis.line")
                         Text("Charts")
                     }
+                DataAtAGlance()
+                    .tabItem {
+                        Image(systemName: "chart.xyaxis.line")
+                        Text("Trends")
+                    }
             }
         }
     }
