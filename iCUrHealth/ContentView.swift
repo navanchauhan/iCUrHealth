@@ -8,6 +8,14 @@
 import SwiftUI
 import HealthKit
 import HealthKitUI
+import Charts
+
+struct chartData: Identifiable {
+    
+    let dateInterval: Date
+    let data: Double
+    var id: TimeInterval { dateInterval.timeIntervalSince1970 }
+}
 
 let allTypes: Set = [
     HKQuantityType.workoutType(),
@@ -20,72 +28,108 @@ let allTypes: Set = [
     HKCategoryType(.sleepAnalysis)
 ]
 
-func stepCount(healthStore: HKHealthStore) async throws {
-    let stepType = HKQuantityType(.stepCount)
-    let descriptor = HKSampleQueryDescriptor(predicates:[.quantitySample(type: stepType)], sortDescriptors: [SortDescriptor(\.endDate, order: .reverse)], limit: 10)
-    let descriptor = HKSampleQuery(
-    
-    let results = try await descriptor.result(for: healthStore)
-    
-    for result in results {
-        print(result)
-    }
-}
-
 struct ContentView: View {
     @State var authenticated = false
     @State var trigger = false
     
     let healthStore = HKHealthStore()
     
+    @State private var data: [chartData] = []
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Button(action: {
-                trigger.toggle()
-            }) {
-                Text("Force Permissions")
-            }
-            Button(action: {
-                if HKHealthStore.isHealthDataAvailable() {
-                    print("YES!")
-                    Task {
-                        try await stepCount(healthStore: healthStore)
+        NavigationView {
+            VStack {
+                HStack {
+                    Text("Steps")
+                    Chart(data) {
+                        BarMark(x: .value("Date", $0.dateInterval),
+                                y: .value("Count", $0.data)
+                        )
+                        
                     }
-                    
-                    
-                } else {
-                    print("NOOOO!")
+                }.frame(maxHeight: 100)
+                Button(action: {
+                    Task {
+                        try await fetchStepCountData()
+                    }
+                })
+                     {
+                    Text("Exp Function")
                 }
-            }) {
-                Text("Test Healthkit stuff")
-            }.disabled(!authenticated)
-            
+                Spacer()
                 .onAppear() {
-                            
-                            // Check that Health data is available on the device.
-                            if HKHealthStore.isHealthDataAvailable() {
-                                // Modifying the trigger initiates the health data
-                                // access request.
-                                trigger.toggle()
-                            }
-                        }
+                    if HKHealthStore.isHealthDataAvailable() {
+                        trigger.toggle()
+                    }
+                }
                 .healthDataAccessRequest(store: healthStore,
-                                                 readTypes: allTypes,
-                                                 trigger: trigger) { result in
-                            switch result {
-                                
-                            case .success(_):
-                                authenticated = true
-                            case .failure(let error):
-                                // Handle the error here.
-                                fatalError("*** An error occurred while requesting authentication: \(error) ***")
-                            }
+                                         readTypes: allTypes,
+                                         trigger: trigger) { result in
+                    switch result {
+                        
+                    case .success(_):
+                        authenticated = true
+                        Task {
+                            try await fetchStepCountData()
                         }
+                    case .failure(let error):
+                        // Handle the error here.
+                        fatalError("*** An error occurred while requesting authentication: \(error) ***")
+                    }
+                }
+            }
+            .padding()
+            .navigationTitle("iCUrHealth")
         }
-        .padding()
+    }
+    
+    private func fetchStepCountData() async throws {
+        let calendar = Calendar(identifier: .gregorian)
+        let today = calendar.startOfDay(for: Date())
+
+
+        guard let endDate = calendar.date(byAdding: .day, value: 1, to: today) else {
+            fatalError("*** Unable to calculate the end time ***")
+        }
+
+
+        guard let startDate = calendar.date(byAdding: .day, value: -29, to: endDate) else {
+            fatalError("*** Unable to calculate the start time ***")
+        }
+
+
+        let thisWeek = HKQuery.predicateForSamples(withStart: startDate, end: endDate)
+
+
+        // Create the query descriptor.
+        let stepType = HKQuantityType(.stepCount)
+        let stepsThisWeek = HKSamplePredicate.quantitySample(type: stepType, predicate:thisWeek)
+        let everyDay = DateComponents(day:1)
+
+
+        let sumOfStepsQuery = HKStatisticsCollectionQueryDescriptor(
+            predicate: stepsThisWeek,
+            options: .cumulativeSum,
+            anchorDate: endDate,
+            intervalComponents: everyDay)
+
+
+        let stepCounts = try await sumOfStepsQuery.result(for: self.healthStore)
+        
+        var dailyData: [chartData] = []
+        
+        stepCounts.enumerateStatistics(from: startDate, to: endDate) { stats, _ in
+            if let quantity = stats.sumQuantity() {
+                //print(quantity, stats.startDate)
+                dailyData.append(
+                    chartData(dateInterval: stats.startDate, data: quantity.doubleValue(for: HKUnit.count()))
+                )
+            } else {
+            }
+            
+        }
+        
+        data = dailyData
     }
 }
 

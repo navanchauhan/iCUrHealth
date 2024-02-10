@@ -11,6 +11,9 @@
 		3E54FF0E2B772F1C00260FCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E54FF0D2B772F1C00260FCB /* ContentView.swift */; };
 		3E54FF102B772F1E00260FCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF0F2B772F1E00260FCB /* Assets.xcassets */; };
 		3E54FF142B772F1E00260FCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */; };
+		3E54FF1C2B7765C200260FCB /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E54FF1B2B7765C200260FCB /* CareKit */; };
+		3E54FF1E2B7765C200260FCB /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = 3E54FF1D2B7765C200260FCB /* CareKitStore */; };
+		3E54FF202B7765C200260FCB /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3E54FF1F2B7765C200260FCB /* CareKitUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E54FF1E2B7765C200260FCB /* CareKitStore in Frameworks */,
+				3E54FF1C2B7765C200260FCB /* CareKit in Frameworks */,
+				3E54FF202B7765C200260FCB /* CareKitUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,11 @@
 			dependencies = (
 			);
 			name = iCUrHealth;
+			packageProductDependencies = (
+				3E54FF1B2B7765C200260FCB /* CareKit */,
+				3E54FF1D2B7765C200260FCB /* CareKitStore */,
+				3E54FF1F2B7765C200260FCB /* CareKitUI */,
+			);
 			productName = iCUrHealth;
 			productReference = 3E54FF082B772F1C00260FCB /* iCUrHealth.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +124,9 @@
 				Base,
 			);
 			mainGroup = 3E54FEFF2B772F1C00260FCB;
+			packageReferences = (
+				3E54FF1A2B7765C200260FCB /* XCRemoteSwiftPackageReference "CareKit" */,
+			);
 			productRefGroup = 3E54FF092B772F1C00260FCB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -274,6 +288,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Used to analyze and provide strats";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to analyze health data to provide stats";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -292,7 +308,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.navanchauhan.iCUrHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -312,6 +329,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Used to analyze and provide strats";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Used to analyze health data to provide stats";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -330,7 +349,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.navanchauhan.iCUrHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -359,6 +379,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3E54FF1A2B7765C200260FCB /* XCRemoteSwiftPackageReference "CareKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/carekit-apple/CareKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3E54FF1B2B7765C200260FCB /* CareKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E54FF1A2B7765C200260FCB /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKit;
+		};
+		3E54FF1D2B7765C200260FCB /* CareKitStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E54FF1A2B7765C200260FCB /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitStore;
+		};
+		3E54FF1F2B7765C200260FCB /* CareKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3E54FF1A2B7765C200260FCB /* XCRemoteSwiftPackageReference "CareKit" */;
+			productName = CareKitUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3E54FF002B772F1C00260FCB /* Project object */;
 }
