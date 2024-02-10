@@ -9,15 +9,17 @@ import SwiftUI
 
 struct userChart: Identifiable {
     let type: String
-    let data1: [chartData]
+    let metric: String
+    let data: [chartData]
     var id = UUID()
     func getTrend() -> Double{
         var trend: Double
         var values: [Double] = []
-        for dataPoint in data1 {
+        for dataPoint in data {
             values.append(dataPoint.data)
         }
-        trend = values.reduce(0.0, +)
+        let sum = values.reduce(0.0, +)
+        trend = sum / Double(values.count)
         return trend
     }
     
@@ -27,14 +29,10 @@ struct UserCharts: View {
     var charts: [userChart]
     var body: some View {
         VStack{
-            
             ForEach(charts) {
                 chart in
                 VStack{
-                    let trend = chart.getTrend()
-                    let trendString = String(trend)
-                    Text(trendString)
-                    HealthChart(chart: chart)
+                    HealthChart(chart: chart, average: chart.getTrend())
                 }
             }
         }

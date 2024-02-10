@@ -11,7 +11,7 @@ import HealthKitUI
 import Charts
 
 struct chartData: Identifiable {
-    
+    let tag: String
     let dateInterval: Date
     let data: Double
     var id: TimeInterval { dateInterval.timeIntervalSince1970 }
@@ -86,9 +86,10 @@ struct ContentView: View {
                     Image(systemName: "gear")
                     Text("Home")
                 }
-                let ch1 = userChart(type: "bar", data1: data)
-                let ch2 = userChart(type: "line", data1: data)
-                UserCharts(charts: [ch1, ch2])
+                let ch1 = userChart(type: "bar", metric:"Steps", data: data)
+                let ch2 = userChart(type: "line", metric:"Steps", data: data)
+                let ch3 = userChart(type: "trend", metric:"Steps", data: data)
+                UserCharts(charts: [ch1])
                     .tabItem {
                         Image(systemName: "chart.xyaxis.line")
                         Text("Charts")
@@ -141,7 +142,7 @@ struct ContentView: View {
             if let quantity = stats.sumQuantity() {
                 //print(quantity, stats.startDate)
                 dailyData.append(
-                    chartData(dateInterval: stats.startDate, data: quantity.doubleValue(for: HKUnit.count()))
+                    chartData(tag: "activity", dateInterval: stats.startDate, data: quantity.doubleValue(for: HKUnit.count()))
                 )
             } else {
             }
