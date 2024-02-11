@@ -6,11 +6,15 @@
 	objectVersion = 56;
 	objects = {
 
-/* Begin PBXBuildFile section */
 		3E54FF0C2B772F1C00260FCB /* iCUrHealthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E54FF0B2B772F1C00260FCB /* iCUrHealthApp.swift */; };
 		3E54FF0E2B772F1C00260FCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E54FF0D2B772F1C00260FCB /* ContentView.swift */; };
 		3E54FF102B772F1E00260FCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF0F2B772F1E00260FCB /* Assets.xcassets */; };
 		3E54FF142B772F1E00260FCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */; };
+		3E8F2A982B78905900FAA801 /* DataAtAGlance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A952B78905900FAA801 /* DataAtAGlance.swift */; };
+		3E8F2A992B78905900FAA801 /* DetailedAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A962B78905900FAA801 /* DetailedAnalysisView.swift */; };
+		3E8F2A9A2B78905900FAA801 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A972B78905900FAA801 /* HealthData.swift */; };
+		3E8F2A9C2B78920A00FAA801 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A9B2B78920A00FAA801 /* HomeView.swift */; };
+		3E8F2A9E2B78921E00FAA801 /* WorkoutMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A9D2B78921E00FAA801 /* WorkoutMapView.swift */; };
 		72C8BC2F2B777369004BAE8B /* UserCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC2E2B777369004BAE8B /* UserCharts.swift */; };
 		72C8BC312B77736E004BAE8B /* HealthChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC302B77736E004BAE8B /* HealthChart.swift */; };
 		72C8BC352B77AEEE004BAE8B /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC322B77AEEE004BAE8B /* HealthData.swift */; };
@@ -25,6 +29,11 @@
 		3E54FF0F2B772F1E00260FCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E54FF112B772F1E00260FCB /* iCUrHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iCUrHealth.entitlements; sourceTree = "<group>"; };
 		3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3E8F2A952B78905900FAA801 /* DataAtAGlance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAtAGlance.swift; sourceTree = "<group>"; };
+		3E8F2A962B78905900FAA801 /* DetailedAnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedAnalysisView.swift; sourceTree = "<group>"; };
+		3E8F2A972B78905900FAA801 /* HealthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
+		3E8F2A9B2B78920A00FAA801 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3E8F2A9D2B78921E00FAA801 /* WorkoutMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapView.swift; sourceTree = "<group>"; };
 		72C8BC2E2B777369004BAE8B /* UserCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCharts.swift; sourceTree = "<group>"; };
 		72C8BC302B77736E004BAE8B /* HealthChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthChart.swift; sourceTree = "<group>"; };
 		72C8BC322B77AEEE004BAE8B /* HealthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
@@ -62,9 +71,11 @@
 		3E54FF0A2B772F1C00260FCB /* iCUrHealth */ = {
 			isa = PBXGroup;
 			children = (
-				72C8BC332B77AEEE004BAE8B /* DataAtAGlance.swift */,
-				72C8BC342B77AEEE004BAE8B /* DetailedAnalysisView.swift */,
-				72C8BC322B77AEEE004BAE8B /* HealthData.swift */,
+				3E8F2A952B78905900FAA801 /* DataAtAGlance.swift */,
+				3E8F2A9B2B78920A00FAA801 /* HomeView.swift */,
+				3E8F2A9D2B78921E00FAA801 /* WorkoutMapView.swift */,
+				3E8F2A962B78905900FAA801 /* DetailedAnalysisView.swift */,
+				3E8F2A972B78905900FAA801 /* HealthData.swift */,
 				3E54FF0B2B772F1C00260FCB /* iCUrHealthApp.swift */,
 				3E54FF0D2B772F1C00260FCB /* ContentView.swift */,
 				72C8BC2E2B777369004BAE8B /* UserCharts.swift */,
@@ -159,10 +170,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C8BC312B77736E004BAE8B /* HealthChart.swift in Sources */,
-				72C8BC352B77AEEE004BAE8B /* HealthData.swift in Sources */,
-				72C8BC362B77AEEE004BAE8B /* DataAtAGlance.swift in Sources */,
+				3E8F2A9A2B78905900FAA801 /* HealthData.swift in Sources */,
 				3E54FF0E2B772F1C00260FCB /* ContentView.swift in Sources */,
+				3E8F2A9E2B78921E00FAA801 /* WorkoutMapView.swift in Sources */,
+				3E8F2A992B78905900FAA801 /* DetailedAnalysisView.swift in Sources */,
 				3E54FF0C2B772F1C00260FCB /* iCUrHealthApp.swift in Sources */,
+				3E8F2A9C2B78920A00FAA801 /* HomeView.swift in Sources */,
+				3E8F2A982B78905900FAA801 /* DataAtAGlance.swift in Sources */,
 				72C8BC2F2B777369004BAE8B /* UserCharts.swift in Sources */,
 				72C8BC372B77AEEE004BAE8B /* DetailedAnalysisView.swift in Sources */,
 			);
@@ -294,7 +308,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iCUrHealth/Preview Content\"";
-				DEVELOPMENT_TEAM = 8VD49K824A;
+				DEVELOPMENT_TEAM = 6BS49F3GLW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -315,7 +329,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nthmonkey.iCUrHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.navanchauhan.iCUrHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -335,7 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"iCUrHealth/Preview Content\"";
-				DEVELOPMENT_TEAM = 8VD49K824A;
+				DEVELOPMENT_TEAM = 6BS49F3GLW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -356,7 +370,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nthmonkey.iCUrHealth;
+				PRODUCT_BUNDLE_IDENTIFIER = com.navanchauhan.iCUrHealth;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
