@@ -26,7 +26,7 @@ extension Date {
 
 struct HealthData: Codable, Identifiable {
     var id = UUID()
-    var date: String
+    var date: Date
     var steps: Double?
     var activeEnergy: Double?
     var exerciseMinutes: Double?
@@ -195,12 +195,16 @@ extension HealthDataFetcher {
         let calendar = Calendar.current
         let today = Date()
         var healthData: [HealthData] = []
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M/d/yy"
+        
 
         for day in 1...14 {
             guard let endDate = calendar.date(byAdding: .day, value: -day, to: today) else { continue }
             healthData.append(
                 HealthData(
-                    date: DateFormatter.localizedString(from: endDate, dateStyle: .short, timeStyle: .none)
+                    date: dateFormatter.date(from: DateFormatter.localizedString(from: endDate, dateStyle: .short, timeStyle: .none))!
                 )
             )
         }

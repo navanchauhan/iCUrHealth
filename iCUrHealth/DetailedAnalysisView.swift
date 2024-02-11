@@ -7,11 +7,14 @@
 
 import SwiftUI
 import Charts
+import Foundation
 
 struct DetailedAnalysisView: View {
     @State var healthData: [HealthData]
     @State var llmInput: String = ""
     let prediction: Analysis
+    
+    let dateFormatter = DateFormatter()
     
     
     var body: some View {

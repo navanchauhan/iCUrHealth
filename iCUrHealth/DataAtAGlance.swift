@@ -156,6 +156,7 @@ struct DataAtAGlance: View {
                                 } else {
                                     initial_count += 1
                                 }
+                                print(myValue.date)
                             }
                             
                             init_avg = initial_total / initial_count
