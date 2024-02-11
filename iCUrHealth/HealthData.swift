@@ -24,6 +24,11 @@ extension Date {
     }
 }
 
+struct ScreenTimeData: Decodable {
+    let screenTimeTotal: [Double]
+    let screenTimeSocial: [Double]
+}
+
 struct HealthData: Codable, Identifiable {
     var id = UUID()
     var date: Date
@@ -32,7 +37,9 @@ struct HealthData: Codable, Identifiable {
     var exerciseMinutes: Double?
     var bodyWeight: Double?
     var sleepHours: Double?
-    var heartRate: Double?
+    var minutesInDaylight: Double?
+    var screenTimeSocialMedia: Double?
+    var screenTimeTotal: Double?
 }
 
 enum HealthDataFetcherError: Error {
@@ -54,7 +61,9 @@ class HealthDataFetcher {
             HKQuantityType(.appleExerciseTime),
             HKQuantityType(.bodyMass),
             HKQuantityType(.heartRate),
-            HKCategoryType(.sleepAnalysis)
+            HKCategoryType(.sleepAnalysis),
+            HKQuantityType(.timeInDaylight),
+            HKQuantityType(.restingHeartRate)
         ]
 
         try await healthStore.requestAuthorization(toShare: Set<HKSampleType>(), read: types)
@@ -107,6 +116,10 @@ class HealthDataFetcher {
             unit: HKUnit.count(),
             options: [.cumulativeSum]
         )
+    }
+    
+    func fetchLastTwoWeeksTimeinDaylight() async throws -> [Double] {
+        try await fetchLastTwoWeeksQuantityData(for: .timeInDaylight, unit: HKUnit.minute(), options: [.cumulativeSum])
     }
 
     func fetchLastTwoWeeksActiveEnergy() async throws -> [Double] {
@@ -216,12 +229,57 @@ extension HealthDataFetcher {
         async let caloriesBurned = fetchLastTwoWeeksActiveEnergy()
         async let exerciseTime = fetchLastTwoWeeksExerciseTime()
         async let bodyMass = fetchLastTwoWeeksBodyWeight()
+        async let daylightMinutes = fetchLastTwoWeeksTimeinDaylight()
 
         let fetchedStepCounts = try? await stepCounts
         let fetchedSleepHours = try? await sleepHours
         let fetchedCaloriesBurned = try? await caloriesBurned
         let fetchedExerciseTime = try? await exerciseTime
         let fetchedBodyMass = try? await bodyMass
+        let fetchedDaylightMinutes = try? await daylightMinutes
+        
+        var screenTimeTotal: [Double] = [5.26, 5.11, 3.38,5.38,5.12,6.18,6.28,7.5,5.37,5.29,5.19,5.1,6.12,8.25]
+        var screenTimeSocial: [Double] = [1.08,1.48,1.23,2.44,2.31,2.25,2.56,2.47,2.31,2.39,2.27,2.25,2.33,1.06]
+        
+        if let urlString = UserDefaults.standard.string(forKey: "screentimeConsumptionEndpoint"),
+           let url = URL(string: urlString) {
+            let semaphore = DispatchSemaphore(value: 0)
+            var request = URLRequest(url: url)
+            request.httpMethod = "GET"
+            var responseData: Data?
+            var responseError: Error?
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                responseData = data
+                responseError = error
+                semaphore.signal()  // Signal that the task is completed
+            }
+            task.resume()
+            semaphore.wait()
+            if let error = responseError {
+                print("Error fetching data: \(error.localizedDescription)")
+            } else if let data = responseData {
+                do {
+                    let decoder = JSONDecoder()
+                    let screenTimeData = try decoder.decode(ScreenTimeData.self, from: data)
+                    
+                    // Access the fetched data
+                    screenTimeTotal = screenTimeData.screenTimeTotal
+                    screenTimeSocial = screenTimeData.screenTimeSocial
+                    
+                    // Use the variables as needed
+                    print("Total Screen Time: \(screenTimeTotal)")
+                    print("Social Screen Time: \(screenTimeSocial)")
+                } catch {
+                    print("Error decoding JSON: \(error.localizedDescription)")
+                }
+            } else {
+                print("No data received")
+            }
+        } else {
+            print("URL not found in UserDefaults")
+        }
+        
+        
 
         for day in 0...13 {
             healthData[day].steps = fetchedStepCounts?[day]
@@ -229,7 +287,11 @@ extension HealthDataFetcher {
             healthData[day].activeEnergy = fetchedCaloriesBurned?[day]
             healthData[day].exerciseMinutes = fetchedExerciseTime?[day]
             healthData[day].bodyWeight = fetchedBodyMass?[day]
+            healthData[day].minutesInDaylight = fetchedDaylightMinutes?[day]
+            healthData[day].screenTimeTotal = screenTimeTotal[day]
+            healthData[day].screenTimeSocialMedia = screenTimeSocial[day]
         }
+        
 
         return healthData
     }

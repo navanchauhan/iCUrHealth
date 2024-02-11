@@ -44,18 +44,18 @@ struct ContentView: View {
             TabView{
                 HomeView()
                 .tabItem {
-                    Image(systemName: "gear")
+                    Image(systemName: "stethoscope")
                     Text("Home")
                 }
+                DataAtAGlance()
+                    .tabItem {
+                        Image(systemName: "lightbulb.max")
+                        Text("Analysis")
+                    }
                 UserCharts()
                     .tabItem {
                         Image(systemName: "chart.xyaxis.line")
                         Text("Charts")
-                    }
-                DataAtAGlance()
-                    .tabItem {
-                        Image(systemName: "chart.xyaxis.line")
-                        Text("Trends")
                     }
             }
         
