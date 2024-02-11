@@ -43,7 +43,9 @@ func getAverage(healthData: [HealthData]) -> Double {
 }
 
 struct UserCharts: View {
-    @State private var healthData: [HealthData] = []
+//    var charts: [userChart]
+    @State var charts: [userChart] = []
+    @State var healthData: [HealthData] = []
     var body: some View {
         VStack{
             Text("Step Count").font(.title)
@@ -81,7 +83,7 @@ struct UserCharts: View {
                     }
                 }
             }.frame(height: 250)
-        }.onAppear{
+        }.onAppear {
             let healthDataFetcher = HealthDataFetcher()
             Task {
                 self.healthData = try await healthDataFetcher.fetchAndProcessHealthData()
