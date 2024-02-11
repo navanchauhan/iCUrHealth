@@ -86,10 +86,7 @@ struct ContentView: View {
                     Image(systemName: "gear")
                     Text("Home")
                 }
-                let ch1 = userChart(type: "bar", metric:"Steps", data: data)
-                let ch2 = userChart(type: "line", metric:"Steps", data: data)
-                let ch3 = userChart(type: "trend", metric:"Steps", data: data)
-                UserCharts(charts: [ch1])
+                UserCharts()
                     .tabItem {
                         Image(systemName: "chart.xyaxis.line")
                         Text("Charts")

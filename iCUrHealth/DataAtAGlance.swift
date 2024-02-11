@@ -74,7 +74,7 @@ struct DataAtAGlance: View {
                                 }
                             }
                             
-                            var init_avg = initial_total / initial_count
+                            var init_avg = max(initial_total / initial_count,1)
                             var rece_avg = final_total / final_count
                             
                             var percentage = rece_avg*100/init_avg
@@ -115,7 +115,7 @@ struct DataAtAGlance: View {
                                 }
                             }
                             
-                            init_avg = initial_total / initial_count
+                            init_avg = max(initial_total / initial_count,1)
                             rece_avg = final_total / final_count
                             
                             percentage = rece_avg*100/init_avg

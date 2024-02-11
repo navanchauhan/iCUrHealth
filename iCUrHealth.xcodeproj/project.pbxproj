@@ -11,11 +11,11 @@
 		3E54FF0E2B772F1C00260FCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E54FF0D2B772F1C00260FCB /* ContentView.swift */; };
 		3E54FF102B772F1E00260FCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF0F2B772F1E00260FCB /* Assets.xcassets */; };
 		3E54FF142B772F1E00260FCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */; };
-		3E54FF1C2B7765C200260FCB /* CareKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3E54FF1B2B7765C200260FCB /* CareKit */; };
-		3E54FF1E2B7765C200260FCB /* CareKitStore in Frameworks */ = {isa = PBXBuildFile; productRef = 3E54FF1D2B7765C200260FCB /* CareKitStore */; };
-		3E54FF202B7765C200260FCB /* CareKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 3E54FF1F2B7765C200260FCB /* CareKitUI */; };
 		72C8BC2F2B777369004BAE8B /* UserCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC2E2B777369004BAE8B /* UserCharts.swift */; };
 		72C8BC312B77736E004BAE8B /* HealthChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC302B77736E004BAE8B /* HealthChart.swift */; };
+		72C8BC352B77AEEE004BAE8B /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC322B77AEEE004BAE8B /* HealthData.swift */; };
+		72C8BC362B77AEEE004BAE8B /* DataAtAGlance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC332B77AEEE004BAE8B /* DataAtAGlance.swift */; };
+		72C8BC372B77AEEE004BAE8B /* DetailedAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC342B77AEEE004BAE8B /* DetailedAnalysisView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +27,9 @@
 		3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		72C8BC2E2B777369004BAE8B /* UserCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCharts.swift; sourceTree = "<group>"; };
 		72C8BC302B77736E004BAE8B /* HealthChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthChart.swift; sourceTree = "<group>"; };
+		72C8BC322B77AEEE004BAE8B /* HealthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
+		72C8BC332B77AEEE004BAE8B /* DataAtAGlance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAtAGlance.swift; sourceTree = "<group>"; };
+		72C8BC342B77AEEE004BAE8B /* DetailedAnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedAnalysisView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +62,9 @@
 		3E54FF0A2B772F1C00260FCB /* iCUrHealth */ = {
 			isa = PBXGroup;
 			children = (
-				3EAA76182B77A10100DEE6D2 /* DetailedAnalysisView.swift */,
-				3E54FF252B778AC200260FCB /* HealthChart.swift */,
-				3E54FF232B778ABC00260FCB /* UserCharts.swift */,
+				72C8BC332B77AEEE004BAE8B /* DataAtAGlance.swift */,
+				72C8BC342B77AEEE004BAE8B /* DetailedAnalysisView.swift */,
+				72C8BC322B77AEEE004BAE8B /* HealthData.swift */,
 				3E54FF0B2B772F1C00260FCB /* iCUrHealthApp.swift */,
 				3E54FF0D2B772F1C00260FCB /* ContentView.swift */,
 				72C8BC2E2B777369004BAE8B /* UserCharts.swift */,
@@ -69,8 +72,6 @@
 				3E54FF0F2B772F1E00260FCB /* Assets.xcassets */,
 				3E54FF112B772F1E00260FCB /* iCUrHealth.entitlements */,
 				3E54FF122B772F1E00260FCB /* Preview Content */,
-				3E54FF272B778BBB00260FCB /* HealthData.swift */,
-				3E54FF292B778D9600260FCB /* DataAtAGlance.swift */,
 			);
 			path = iCUrHealth;
 			sourceTree = "<group>";
@@ -158,9 +159,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C8BC312B77736E004BAE8B /* HealthChart.swift in Sources */,
+				72C8BC352B77AEEE004BAE8B /* HealthData.swift in Sources */,
+				72C8BC362B77AEEE004BAE8B /* DataAtAGlance.swift in Sources */,
 				3E54FF0E2B772F1C00260FCB /* ContentView.swift in Sources */,
 				3E54FF0C2B772F1C00260FCB /* iCUrHealthApp.swift in Sources */,
 				72C8BC2F2B777369004BAE8B /* UserCharts.swift in Sources */,
+				72C8BC372B77AEEE004BAE8B /* DetailedAnalysisView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
