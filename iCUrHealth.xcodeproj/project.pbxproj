@@ -6,20 +6,20 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
 		3E54FF0C2B772F1C00260FCB /* iCUrHealthApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E54FF0B2B772F1C00260FCB /* iCUrHealthApp.swift */; };
 		3E54FF0E2B772F1C00260FCB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E54FF0D2B772F1C00260FCB /* ContentView.swift */; };
 		3E54FF102B772F1E00260FCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF0F2B772F1E00260FCB /* Assets.xcassets */; };
-		3E54FF142B772F1E00260FCB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */; };
 		3E8F2A982B78905900FAA801 /* DataAtAGlance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A952B78905900FAA801 /* DataAtAGlance.swift */; };
-		3E8F2A992B78905900FAA801 /* DetailedAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A962B78905900FAA801 /* DetailedAnalysisView.swift */; };
 		3E8F2A9A2B78905900FAA801 /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A972B78905900FAA801 /* HealthData.swift */; };
 		3E8F2A9C2B78920A00FAA801 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A9B2B78920A00FAA801 /* HomeView.swift */; };
 		3E8F2A9E2B78921E00FAA801 /* WorkoutMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8F2A9D2B78921E00FAA801 /* WorkoutMapView.swift */; };
+		3EA674962B789A2B00CB7107 /* DetailedAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA674952B789A2B00CB7107 /* DetailedAnalysisView.swift */; };
+		3EA674982B78E17200CB7107 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA674972B78E17200CB7107 /* SettingsView.swift */; };
+		3EA6749B2B78E35B00CB7107 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 3EA6749A2B78E35B00CB7107 /* iPhoneNumberField */; };
+		3EA6749D2B78E5C300CB7107 /* AutoCallerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6749C2B78E5C300CB7107 /* AutoCallerSheet.swift */; };
 		72C8BC2F2B777369004BAE8B /* UserCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC2E2B777369004BAE8B /* UserCharts.swift */; };
 		72C8BC312B77736E004BAE8B /* HealthChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC302B77736E004BAE8B /* HealthChart.swift */; };
-		72C8BC352B77AEEE004BAE8B /* HealthData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC322B77AEEE004BAE8B /* HealthData.swift */; };
-		72C8BC362B77AEEE004BAE8B /* DataAtAGlance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC332B77AEEE004BAE8B /* DataAtAGlance.swift */; };
-		72C8BC372B77AEEE004BAE8B /* DetailedAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C8BC342B77AEEE004BAE8B /* DetailedAnalysisView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,15 +30,14 @@
 		3E54FF112B772F1E00260FCB /* iCUrHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iCUrHealth.entitlements; sourceTree = "<group>"; };
 		3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3E8F2A952B78905900FAA801 /* DataAtAGlance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAtAGlance.swift; sourceTree = "<group>"; };
-		3E8F2A962B78905900FAA801 /* DetailedAnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedAnalysisView.swift; sourceTree = "<group>"; };
 		3E8F2A972B78905900FAA801 /* HealthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
 		3E8F2A9B2B78920A00FAA801 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3E8F2A9D2B78921E00FAA801 /* WorkoutMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutMapView.swift; sourceTree = "<group>"; };
+		3EA674952B789A2B00CB7107 /* DetailedAnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedAnalysisView.swift; sourceTree = "<group>"; };
+		3EA674972B78E17200CB7107 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		3EA6749C2B78E5C300CB7107 /* AutoCallerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AutoCallerSheet.swift; path = iCUrHealth/AutoCallerSheet.swift; sourceTree = "<group>"; };
 		72C8BC2E2B777369004BAE8B /* UserCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCharts.swift; sourceTree = "<group>"; };
 		72C8BC302B77736E004BAE8B /* HealthChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthChart.swift; sourceTree = "<group>"; };
-		72C8BC322B77AEEE004BAE8B /* HealthData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthData.swift; sourceTree = "<group>"; };
-		72C8BC332B77AEEE004BAE8B /* DataAtAGlance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataAtAGlance.swift; sourceTree = "<group>"; };
-		72C8BC342B77AEEE004BAE8B /* DetailedAnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedAnalysisView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EA6749B2B78E35B00CB7107 /* iPhoneNumberField in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +55,10 @@
 		3E54FEFF2B772F1C00260FCB = {
 			isa = PBXGroup;
 			children = (
+				3EA6749C2B78E5C300CB7107 /* AutoCallerSheet.swift */,
 				3E54FF0A2B772F1C00260FCB /* iCUrHealth */,
 				3E54FF092B772F1C00260FCB /* Products */,
+				3EA674942B7899FD00CB7107 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,13 +73,14 @@
 		3E54FF0A2B772F1C00260FCB /* iCUrHealth */ = {
 			isa = PBXGroup;
 			children = (
+				3EA674952B789A2B00CB7107 /* DetailedAnalysisView.swift */,
 				3E8F2A952B78905900FAA801 /* DataAtAGlance.swift */,
 				3E8F2A9B2B78920A00FAA801 /* HomeView.swift */,
 				3E8F2A9D2B78921E00FAA801 /* WorkoutMapView.swift */,
-				3E8F2A962B78905900FAA801 /* DetailedAnalysisView.swift */,
 				3E8F2A972B78905900FAA801 /* HealthData.swift */,
 				3E54FF0B2B772F1C00260FCB /* iCUrHealthApp.swift */,
 				3E54FF0D2B772F1C00260FCB /* ContentView.swift */,
+				3EA674972B78E17200CB7107 /* SettingsView.swift */,
 				72C8BC2E2B777369004BAE8B /* UserCharts.swift */,
 				72C8BC302B77736E004BAE8B /* HealthChart.swift */,
 				3E54FF0F2B772F1E00260FCB /* Assets.xcassets */,
@@ -93,6 +96,13 @@
 				3E54FF132B772F1E00260FCB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3EA674942B7899FD00CB7107 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +122,7 @@
 			);
 			name = iCUrHealth;
 			packageProductDependencies = (
+				3EA6749A2B78E35B00CB7107 /* iPhoneNumberField */,
 			);
 			productName = iCUrHealth;
 			productReference = 3E54FF082B772F1C00260FCB /* iCUrHealth.app */;
@@ -142,6 +153,7 @@
 			);
 			mainGroup = 3E54FEFF2B772F1C00260FCB;
 			packageReferences = (
+				3EA674992B78E35B00CB7107 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
 			);
 			productRefGroup = 3E54FF092B772F1C00260FCB /* Products */;
 			projectDirPath = "";
@@ -157,7 +169,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E54FF142B772F1E00260FCB /* Preview Assets.xcassets in Resources */,
 				3E54FF102B772F1E00260FCB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,13 +183,14 @@
 				72C8BC312B77736E004BAE8B /* HealthChart.swift in Sources */,
 				3E8F2A9A2B78905900FAA801 /* HealthData.swift in Sources */,
 				3E54FF0E2B772F1C00260FCB /* ContentView.swift in Sources */,
+				3EA6749D2B78E5C300CB7107 /* AutoCallerSheet.swift in Sources */,
 				3E8F2A9E2B78921E00FAA801 /* WorkoutMapView.swift in Sources */,
-				3E8F2A992B78905900FAA801 /* DetailedAnalysisView.swift in Sources */,
+				3EA674962B789A2B00CB7107 /* DetailedAnalysisView.swift in Sources */,
+				3EA674982B78E17200CB7107 /* SettingsView.swift in Sources */,
 				3E54FF0C2B772F1C00260FCB /* iCUrHealthApp.swift in Sources */,
 				3E8F2A9C2B78920A00FAA801 /* HomeView.swift in Sources */,
 				3E8F2A982B78905900FAA801 /* DataAtAGlance.swift in Sources */,
 				72C8BC2F2B777369004BAE8B /* UserCharts.swift in Sources */,
-				72C8BC372B77AEEE004BAE8B /* DetailedAnalysisView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +415,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3EA674992B78E35B00CB7107 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3EA6749A2B78E35B00CB7107 /* iPhoneNumberField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EA674992B78E35B00CB7107 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
+			productName = iPhoneNumberField;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3E54FF002B772F1C00260FCB /* Project object */;
 }

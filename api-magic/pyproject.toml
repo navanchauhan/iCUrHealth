@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "api-magic"
+version = "0.1.0"
+description = ""
+authors = ["Navan Chauhan <navanchauhan@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11,<3.12"
+vocode = "^0.1.111"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
